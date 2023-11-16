@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Fonts */
+@font-face {
+  font-family: "BlackBones";
+  src: url("../public/blackbones.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "alatsi";
+  src: url("../public/alatsi.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@font-face {
+  font-family: "fontspring";
+  src: url("../public/Fontspring.otf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  &:before{
+    content:'';
+    content: "";
+    width: 100%;
+    height: 100vh;
+    //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
+    // background: #D3D3D3;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.blog h1 {
+  font-size: 1.7em; /* Change the size of text inside <strong> to 1.2 times the parent font size */
+}
+
+.blog h2 {
+  font-size: 1.3em;
+}
+.blog h3 {
+  font-size: 1.1em;
+}
+.blog p {
+  font-size: 1em
+}
+/* Utility */
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-blackbones {
+  font-family: BlackBones;
+}
+.font-fontspring {
+  font-family: fontspring;
+}
+.font-alatsi {
+  font-family: alatsi;
+}
+
+.text-cyan {
+  color: rgb(0, 162, 255);
+}
+.z-100 {
+  z-index: 999999;
+}
+.z-no {
+  z-index: -1;
+}
+/* Animations */
+@keyframes gradientscale {
+  0% {
+    opacity: 0;
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(150px);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes moveballs {
+  0% {
+    left: 0;
+    top: 0;
+  }
+}
+
+/* HTML */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::selection {
+  background-color: black;
+  color: cyan;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    0deg,
+    rgba(65, 240, 242, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+
+  transition: 1s ease-in;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(40, 155, 175);
+}
+body {
+  @apply text-black;
+}
+
+/* Home */
+ul {
+  background: white;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+}
+.Link {
+  display: inline-block;
+  position: relative;
+}
+.Link:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.Link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.activelink {
+  border-bottom: solid 2.5px #0087ca;
+}
+svg {
+  display: inline-block;
+  vertical-align: bottom;
+}
+/* -revolving balls */
+#animation-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  animation: moveballs 3s ease-in-out;
+  filter: blur(1px);
+}
+
+.ball-1 {
+  background: linear-gradient(to bottom right, #ff0080, #ff8c00);
+  width: 29px;
+  height: 29px;
+}
+
+.ball-2 {
+  width: 29px;
+  height: 29px;
+  background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+}
+
+.ball-3 {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(to bottom right, #4b0082, #9400d3);
+}
+
+.ball-4 {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(to bottom right, #f50057, #ff4081);
+}
+/* -gradeint */
+.hero-gradient-bg {
+  z-index: -1;
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31vw;
+  height: 70%;
+}
+
+.circle {
+  position: absolute;
+  filter: blur(150px);
+  transform: translate(-50%, -50%);
+  width: 15vw;
+  height: 30vh;
+  border-radius: 50%;
+}
+
+.cyan {
+  animation: gradientscale 2s ease-in-out;
+
+  top: 135%;
+  left: -35%;
+
+  background-image: radial-gradient(circle at center, #00f0b5, #00aeff);
+}
+
+.purple {
+  animation: gradientscale 5s ease-in-out;
+  top: 85%;
+  left: 50%;
+  background-image: radial-gradient(circle at center, #aa77ff, #00aeff);
+}
+
+#cyan {
+  animation: gradientscale 2s ease-in-out;
+  top: 134%;
+  left: 135%;
+
+  background-image: radial-gradient(circle at center, #00f0b5, #00aeff);
+}
+#purple {
+  top: 134%;
+  left: 52%;
+  animation: gradientscale 5s ease-in-out;
+  background-image: radial-gradient(circle at center, #aa77ff, #aa77ff);
+}
+#cyan1 {
+  top: 108%;
+  left: 93%;
+  animation: gradientscale 2s ease-in-out;
+  background-image: radial-gradient(circle at center, #00f0b5, #00aeff);
+}
+#cyan2 {
+  top: 111%;
+  animation: gradientscale 2s ease-in-out;
+  left: 8%;
+  background-image: radial-gradient(circle at center, #00f0b5, #00aeff);
+}
+/* -Skateboard */
+#skateboard {
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 39%;
+  width: 400px;
+  position: relative;
+  overflow: visible;
+}
+.skatebar {
+  z-index: -1;
+  width: 27vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: white;
+  height: 50px;
+  margin-bottom: 2px;
+  border-radius: 50px;
+  border: 1px solid cyan;
+  animation: firstlanding 5s ease-in-out;
+}
+.login {
+  background: linear-gradient(
+      180deg,
+      #aa77ff -61.5%,
+      rgba(170, 119, 255, 0) 100%
+    ),
+    linear-gradient(269.62deg, #00f0b5 0.11%, rgba(0, 240, 181, 0) 98.77%),
+    #00aeff;
+  border-radius: 35px;
+  width: 8.6vw;
+  height: 5.81vh;
+}
+
+/* Body */
+.heading {
+  text-align: center;
+  font-family: Poppins;
+}
+.heading h1 {
+  font-weight: 600;
+  background: linear-gradient(90deg, #00f0b5 0%, rgba(0, 240, 181, 0.1) 100%),
+    linear-gradient(270deg, #00aeff 0%, rgba(0, 174, 255, 0.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.bodyimg2 {
+  background: url("https://media.discordapp.net/attachments/1039174970993016922/1088135386666119288/image.png?width=572&height=557");
+}
+/* Benefits */
+.benefit-container {
+  background-image: url("../public/pipe.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+/* responsiveness */
+@media (max-width: 1000px) {
+  .cyan:nth-of-type(3) {
+    left: 0;
+  }
+  .hero-gradient-bg {
+    left: 0;
+  }
+  .skatebar {
+    width: 150px;
+    height: 30px;
+  }
+}
